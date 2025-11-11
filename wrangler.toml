@@ -1,0 +1,39 @@
+# Cloudflare Workers Configuration for Static Next.js Site
+name = "fractionalgrowth"
+compatibility_date = "2024-11-10"
+account_id="d5c008d64811311520b68cb744285382"
+
+# Workers.dev subdomain (disabled when using custom domain)
+workers_dev = false
+
+# Preview URLs for deployments
+preview_urls = true
+
+# Custom Domain Configuration
+# Cloudflare automatically handles DNS records and SSL certificates
+[[routes]]
+pattern = "ferhansahin.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.ferhansahin.com"
+custom_domain = true
+
+# Static Assets Configuration
+[assets]
+directory = "./out"
+# Single Page Application routing - serves index.html for unmatched routes
+not_found_handling = "single-page-application"
+# Automatically handle trailing slashes
+html_handling = "auto-trailing-slash"
+
+# Optional: Advanced routing control
+# run_worker_first = false  # Serve static assets first (default)
+# run_worker_first = ["/api/*"]  # Run Worker first for API routes only
+
+# Optional: Environment-specific configurations
+# [env.production]
+# name = "fractionalgrowth"
+
+# [env.preview]
+# name = "fractionalgrowth-preview"
